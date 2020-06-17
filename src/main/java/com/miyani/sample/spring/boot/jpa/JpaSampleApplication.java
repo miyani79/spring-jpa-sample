@@ -1,4 +1,4 @@
-package com.miyani.sample.spring.boot.jpa.jpa;
+package com.miyani.sample.spring.boot.jpa;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

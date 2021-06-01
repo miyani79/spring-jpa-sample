@@ -23,8 +23,12 @@ public class FileController
 {
     private Logger logger = LoggerFactory.getLogger(this.getClass().getCanonicalName());
 
+    private final FileService fileService;
+
     @Autowired
-    private FileService fileService;
+    public FileController(FileService fileService) {
+        this.fileService = fileService;
+    }
 
     @ResponseBody
     @RequestMapping(value="jpaFileUpload.do")

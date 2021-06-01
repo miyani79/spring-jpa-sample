@@ -10,8 +10,12 @@ import java.util.UUID;
 @Repository
 public class FileJdbcRepository
 {
+    private final JdbcTemplate jdbcTemplate;
+
     @Autowired
-    private JdbcTemplate jdbcTemplate;
+    public FileJdbcRepository(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     public int save(FileInfoDTO fileInfoDTO) {
         return jdbcTemplate.update(

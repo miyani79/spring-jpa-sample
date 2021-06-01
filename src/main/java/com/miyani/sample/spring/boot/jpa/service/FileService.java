@@ -14,14 +14,16 @@ import java.util.UUID;
 @Service
 public class FileService
 {
-    @Autowired
-    private FileJpaRepository fileJpaRepository;
+    private final FileJpaRepository fileJpaRepository;
+    private final FileJdbcRepository fileJdbcRepository;
+    private final ModelMapper modelMapper;
 
     @Autowired
-    private FileJdbcRepository fileJdbcRepository;
-
-    @Autowired
-    private ModelMapper modelMapper;
+    public FileService(FileJpaRepository fileJpaRepository, FileJdbcRepository fileJdbcRepository, ModelMapper modelMapper) {
+        this.fileJpaRepository = fileJpaRepository;
+        this.fileJdbcRepository = fileJdbcRepository;
+        this.modelMapper = modelMapper;
+    }
 
     public Optional<FileInfo> getFile(UUID id) {
         return fileJpaRepository.findById(id);
